@@ -1,8 +1,18 @@
 version: 2.1
+
 orbs:
-  node: circleci/node@3.0.0
+  node: circleci/node@4.1.0
 
   jobs:
+    install-node-example:
+      docker:
+        - image: 'cimg/base:stable'
+      steps:
+        - checkout
+        - node/install:
+          install-yarn: true
+        - run: node --version
+
     k6-performance-testing:
     machine: true
 
@@ -34,7 +44,7 @@ orbs:
 workflows:
   build:
     jobs:
-      - node/test
+      - install-node-example
       - k6-performance-testing:
           requires:
-            - "node/test"
+            - "install-node-example"
