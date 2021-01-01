@@ -35,3 +35,6 @@ workflows:
   build:
     jobs:
       - node/test
+      - k6-performance-testing:
+          requires:
+            - "node/test"
