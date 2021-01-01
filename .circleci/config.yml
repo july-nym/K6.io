@@ -13,31 +13,31 @@ orbs:
           install-yarn: true
         - run: node --version
 
-    k6-performance-testing:
-    machine: true
+    # k6-performance-testing:
+    # machine: true
 
-    steps:
-    - checkout
+    # steps:
+    # - checkout
     
-    - run: 
-        name: pull-loadimpact-docker
-        command: docker pull loadimpact/k6:latest
+    # - run: 
+    #     name: pull-loadimpact-docker
+    #     command: docker pull loadimpact/k6:latest
 
-    - run: 
-        name: smoke-testing
-        command: npm run k6-smoke-testing
+    # - run: 
+    #     name: smoke-testing
+    #     command: npm run k6-smoke-testing
 
-    - run: 
-        name: load-testing
-        command: npm run k6-load-testing
+    # - run: 
+    #     name: load-testing
+    #     command: npm run k6-load-testing
 
-    - run: 
-        name: soak-testing
-        command: npm run k6-soak-testing
+    # - run: 
+    #     name: soak-testing
+    #     command: npm run k6-soak-testing
 
-    - run: 
-        name: stress-testing
-        command: npm run k6-stress-testing
+    # - run: 
+    #     name: stress-testing
+    #     command: npm run k6-stress-testing
 
 
 
@@ -45,6 +45,6 @@ workflows:
   build:
     jobs:
       - install-node-example
-      - k6-performance-testing:
-          requires:
-            - "install-node-example"
+      # - k6-performance-testing:
+      #     requires:
+      #       - "install-node-example"
