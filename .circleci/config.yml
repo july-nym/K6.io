@@ -14,7 +14,34 @@ jobs:
           install-yarn: true
       - run: node --version
 
+  k6-performance-testing:
+    machine: true
+
+    steps:
+    - checkout
+    
+    - run: 
+        name: pull-loadimpact-docker
+        command: docker pull loadimpact/k6:latest
+
+    - run: 
+        name: smoke-testing
+        command: npm run k6-smoke-testing
+
+    - run: 
+        name: load-testing
+        command: npm run k6-load-testing
+
+    - run: 
+        name: soak-testing
+        command: npm run k6-soak-testing
+
+    - run: 
+        name: stress-testing
+        command: npm run k6-stress-testing
+
 workflows:
   test_my_app:
     jobs:
       - install-node
+      - k6-performance-testing
