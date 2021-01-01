@@ -1,49 +1,16 @@
-version: 2.1
-
-orbs:
-  node: circleci/node@4.1.0
-
-  jobs:
-    test:
-    executor: node/default
+jobs:
+  install-node-example:
+    docker:
+      - image: 'cimg/base:stable'
     steps:
       - checkout
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
-
-    # k6-performance-testing:
-    # machine: true
-
-    # steps:
-    # - checkout
-    
-    # - run: 
-    #     name: pull-loadimpact-docker
-    #     command: docker pull loadimpact/k6:latest
-
-    # - run: 
-    #     name: smoke-testing
-    #     command: npm run k6-smoke-testing
-
-    # - run: 
-    #     name: load-testing
-    #     command: npm run k6-load-testing
-
-    # - run: 
-    #     name: soak-testing
-    #     command: npm run k6-soak-testing
-
-    # - run: 
-    #     name: stress-testing
-    #     command: npm run k6-stress-testing
-
-
-
+      - node/install:
+          install-yarn: true
+      - run: node --version
+orbs:
+  node: circleci/node@4.1.0
+version: 2.1
 workflows:
   test_my_app:
     jobs:
-      - test
-      # - k6-performance-testing:
-      #     requires:
-      #       - "install-node-example"
+      - install-node-example
