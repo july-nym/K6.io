@@ -1,0 +1,24 @@
+{
+  "name": "k6.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "k6-test": "k6 run '/Users/reposado/K6.io/performance-test/smoke-testing.js' ",
+    "k6-smoke-testing": "docker run -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -e K6_CLOUD_PROJECT_ID=$K6_CLOUD_PROJECT_ID -v /home/circleci/project:/tmp/Cypress.io -i loadimpact/k6:latest cloud /tmp/Cypress.io/k6/smoke-testing.js",
+    "k6-load-testing": "docker run -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -e K6_CLOUD_PROJECT_ID=$K6_CLOUD_PROJECT_ID -v /home/circleci/project:/tmp/Cypress.io -i loadimpact/k6:latest cloud /tmp/Cypress.io/k6/load-testing.js",
+    "k6-soak-testing": "docker run -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -e K6_CLOUD_PROJECT_ID=$K6_CLOUD_PROJECT_ID -v /home/circleci/project:/tmp/Cypress.io -i loadimpact/k6:latest cloud /tmp/Cypress.io/k6/soak-testing.js",
+    "k6-stress-testing": "docker run -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -e K6_CLOUD_PROJECT_ID=$K6_CLOUD_PROJECT_ID -v /home/circleci/project:/tmp/Cypress.io -i loadimpact/k6:latest cloud /tmp/Cypress.io/k6/stress-testing.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/july-nym/K6.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/july-nym/K6.io/issues"
+  },
+  "homepage": "https://github.com/july-nym/K6.io#readme"
+}
