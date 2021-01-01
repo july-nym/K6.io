@@ -19,5 +19,8 @@
     "url": "https://github.com/july-nym/K6.io/issues"
   },
   "homepage": "https://github.com/july-nym/K6.io#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "node": "^15.4.0"
+  }
 }
