@@ -44,4 +44,6 @@ workflows:
   test_my_app:
     jobs:
       - install-node
-      - k6-performance-testing
+      - k6-performance-testing:
+          requires:
+            - "install-node"
