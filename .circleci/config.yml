@@ -34,4 +34,4 @@ orbs:
 workflows:
   build:
     jobs:
-      - k6-performance-testing
+      - node/test
