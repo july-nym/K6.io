@@ -4,14 +4,13 @@ orbs:
   node: circleci/node@4.1.0
 
   jobs:
-    install-node-example:
-      docker:
-        - image: 'cimg/base:stable'
-      steps:
-        - checkout
-        - node/install:
-          install-yarn: true
-        - run: node --version
+    test:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
 
     # k6-performance-testing:
     # machine: true
@@ -42,9 +41,9 @@ orbs:
 
 
 workflows:
-  build:
+  test_my_app:
     jobs:
-      - install-node-example
+      - test
       # - k6-performance-testing:
       #     requires:
       #       - "install-node-example"
