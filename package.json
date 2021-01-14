@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "k6-test": "k6 run '/Users/reposado/K6.io/performance-test/smoke-testing.js' ",
-    "k6-smoke-testing": "docker run -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -e K6_CLOUD_PROJECT_ID=$K6_CLOUD_PROJECT_ID -v /home/circleci/project:/tmp/K6.io -i loadimpact/k6:latest cloud /tmp/K6.io/performance-test/smoke-testing.js",
-    "k6-load-testing": "docker run -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -e K6_CLOUD_PROJECT_ID=$K6_CLOUD_PROJECT_ID -v /home/circleci/project:/tmp/K6.io -i loadimpact/k6:latest cloud /tmp/K6.io/performance-test/load-testing.js",
-    "k6-soak-testing": "docker run -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -e K6_CLOUD_PROJECT_ID=$K6_CLOUD_PROJECT_ID -v /home/circleci/project:/tmp/K6.io -i loadimpact/k6:latest cloud /tmp/K6.io/performance-test/soak-testing.js",
-    "k6-stress-testing": "docker run -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -e K6_CLOUD_PROJECT_ID=$K6_CLOUD_PROJECT_ID -v /home/circleci/project:/tmp/K6.io -i loadimpact/k6:latest cloud /tmp/K6.io/performance-test/stress-testing.js"
+
   },
   "repository": {
     "type": "git",
